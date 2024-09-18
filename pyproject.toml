@@ -2,12 +2,12 @@
 name = "homelab"
 version = "0.1.0"
 description = ""
-authors = ["Your Name <you@example.com>"]
+authors = ["Mayank Pathak <onlinejudge95@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
-
+ansible = "^10.4.0"
 
 [build-system]
 requires = ["poetry-core"]

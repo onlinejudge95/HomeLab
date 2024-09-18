@@ -1,0 +1,11 @@
+---
+- name: Update astropi
+  hosts: homelab
+  tasks:
+    - name: Update the system
+      become: yes
+      apt:
+        autoclean: true
+        autoremove: true
+        update_cache: true
+        upgrade: "full"
