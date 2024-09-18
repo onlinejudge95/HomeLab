@@ -1,0 +1,6 @@
+---
+- name: Playbook for setting up astropi
+  hosts: all
+  remote_user: onlinejudge95
+  roles:
+    - boot
