@@ -13,6 +13,7 @@
       - git
       - zsh
       - stow
+      - neofetch
 
 - name: Downloads oh my posh installer
   ansible.builtin.uri:
