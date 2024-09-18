@@ -46,3 +46,11 @@
     recurse: yes
     owner: onlinejudge95
     group: onlinejudge95
+
+- name: Mount data volume for astropi
+  become: yes
+  ansible.posix.mount:
+    path: "/mnt/astropi"
+    src: LABEL=AstroPI
+    fstype: ext4
+    state: mounted
