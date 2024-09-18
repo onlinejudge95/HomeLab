@@ -1,0 +1,48 @@
+---
+- name: Upgrade the system apt dependencies
+  become: yes
+  ansible.builtin.apt:
+    update_cache: yes
+    upgrade: "full"
+
+- name: Install required packages
+  become: yes
+  ansible.builtin.apt:
+    update_cache: yes
+    pkg:
+      - git
+      - zsh
+      - stow
+
+- name: Downloads oh my posh installer
+  ansible.builtin.uri:
+    url: https://ohmyposh.dev/install.sh
+    return_content: yes
+  register: oh_my_posh_installer
+
+- name: Install oh-my-posh
+  ansible.builtin.shell:
+    cmd: sh
+    stdin: "{{ oh_my_posh_installer.content }}"
+
+- name: Clones dotfiles
+  become: yes
+  ansible.builtin.git:
+    repo: "https://github.com/onlinejudge95/dotfiles.git"
+    dest: /home/onlinejudge95/dotfiles
+    single_branch: yes
+    version: astropi
+
+- name: Run stow to create symlinks
+  ansible.builtin.shell:
+    cmd: stow .
+    chdir: /home/onlinejudge95/dotfiles
+
+- name: Change ownership of home
+  become: yes
+  ansible.builtin.file:
+    path: /home/onlinejudge95/
+    state: directory
+    recurse: yes
+    owner: onlinejudge95
+    group: onlinejudge95
