@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "homelab"
 version = "0.1.0"
-description = ""
+description = "Ansible Playbooks for my homelab"
 authors = ["Mayank Pathak <onlinejudge95@gmail.com>"]
 readme = "README.md"
 
