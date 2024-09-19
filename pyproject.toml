@@ -1,16 +1,13 @@
 [tool.poetry]
 name = "homelab"
 version = "0.1.0"
-description = ""
+description = "Ansible Playbooks for my homelab"
 authors = ["Mayank Pathak <onlinejudge95@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
 ansible = "^10.4.0"
-
-[tool.poetry.group.dev.dependencies]
-ansible-dev-tools = "^24.9.0"
 
 [build-system]
 requires = ["poetry-core"]
