@@ -9,9 +9,6 @@ readme = "README.md"
 python = "^3.12"
 ansible = "^10.4.0"
 
-[tool.poetry.group.dev.dependencies]
-ansible-dev-tools = "^24.9.0"
-
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
