@@ -1,14 +1,4 @@
 ---
-- name: Install required packages
-  become: yes
-  ansible.builtin.apt:
-    update_cache: yes
-    pkg:
-      - git
-      - zsh
-      - stow
-      - neofetch
-
 - name: Downloads oh my posh installer
   ansible.builtin.uri:
     url: https://ohmyposh.dev/install.sh
