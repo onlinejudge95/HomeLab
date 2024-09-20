@@ -5,4 +5,5 @@
   roles:
     - system_packages
     - shell
-    - boot
+    - dotfiles
+    - storage

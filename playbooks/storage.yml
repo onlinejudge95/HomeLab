@@ -1,0 +1,6 @@
+---
+- name: Playbook for managing storage on astropi
+  hosts: all
+  remote_user: onlinejudge95
+  roles:
+    - storage

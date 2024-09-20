@@ -1,6 +1,7 @@
 ---
 - name: Mount data volume for astropi
   become: yes
+  when: mount_data_disk is defined
   ansible.posix.mount:
     path: "/mnt/astropi"
     src: LABEL=AstroPI
