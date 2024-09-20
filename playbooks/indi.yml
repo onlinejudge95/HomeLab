@@ -4,3 +4,4 @@
   remote_user: onlinejudge95
   roles:
     - indi
+    - system_packages

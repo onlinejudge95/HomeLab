@@ -7,16 +7,6 @@
 
 - name: Add astroberry as a source in apt
   become: yes
-  ansible.builtin.lineinfile:
-    path: /etc/apt/sources.list.d/astroberry.list
-    line: "deb https://www.astroberry.io/repo/ bullseye main"
-    create: yes
+  ansible.builtin.apt_repository:
+    repo: deb https://www.astroberry.io/repo/ {{ debian_distro }} main
     state: present
-
-- name: Install INDI Server
-  become: yes
-  ansible.builtin.apt:
-    update_cache: yes
-    pkg:
-      - indi-full
-      - gsc
