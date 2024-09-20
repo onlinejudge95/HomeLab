@@ -1,17 +1,5 @@
 ---
-- name: Downloads oh my posh installer
-  ansible.builtin.uri:
-    url: https://ohmyposh.dev/install.sh
-    return_content: yes
-  register: oh_my_posh_installer
-
-- name: Install oh-my-posh
-  ansible.builtin.shell:
-    cmd: sh
-    stdin: "{{ oh_my_posh_installer.content }}"
-
 - name: Clones dotfiles
-  become: yes
   ansible.builtin.git:
     repo: "https://github.com/onlinejudge95/dotfiles.git"
     dest: /home/onlinejudge95/dotfiles

@@ -1,0 +1,6 @@
+---
+- name: Playbook for managing shell and prompt
+  hosts: all
+  remote_user: onlinejudge95
+  roles:
+    - shell

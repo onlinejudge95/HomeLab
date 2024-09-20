@@ -4,4 +4,5 @@
   remote_user: onlinejudge95
   roles:
     - system_packages
+    - shell
     - boot
