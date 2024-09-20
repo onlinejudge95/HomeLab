@@ -1,25 +1,4 @@
 ---
-- name: Clones dotfiles
-  ansible.builtin.git:
-    repo: "https://github.com/onlinejudge95/dotfiles.git"
-    dest: /home/onlinejudge95/dotfiles
-    single_branch: yes
-    version: astropi
-
-- name: Run stow to create symlinks
-  ansible.builtin.shell:
-    cmd: stow .
-    chdir: /home/onlinejudge95/dotfiles
-
-- name: Change ownership of home
-  become: yes
-  ansible.builtin.file:
-    path: /home/onlinejudge95/
-    state: directory
-    recurse: yes
-    owner: onlinejudge95
-    group: onlinejudge95
-
 - name: Mount data volume for astropi
   become: yes
   ansible.posix.mount:

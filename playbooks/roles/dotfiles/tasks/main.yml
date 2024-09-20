@@ -1,0 +1,26 @@
+---
+- name: Check if dotfiles exist
+  register: dotfile_dir_exists
+  ansible.builtin.stat:
+    path: ~/dotfiles
+
+- name: Clones dotfiles repo
+  when: not dotfile_dir_exists.stat.exists
+  ansible.builtin.git:
+    repo: "https://github.com/onlinejudge95/dotfiles.git"
+    dest: ~/dotfiles
+    single_branch: yes
+    version: astropi
+
+- name: Fetch latest changes for dotfiles
+  when: dotfile_dir_exists.stat.exists and fetch_latest
+  ansible.builtin.git:
+    repo: "https://github.com/onlinejudge95/dotfiles.git"
+    dest: ~/dotfiles
+    version: astropi
+    update: true
+
+- name: Run stow to create symlinks
+  ansible.builtin.shell:
+    cmd: stow .
+    chdir: ~/dotfiles
