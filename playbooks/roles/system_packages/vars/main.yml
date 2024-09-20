@@ -1,0 +1,8 @@
+---
+cache_update: true
+system_upgrade: true
+packages:
+  - neofetch
+  - git
+  - zsh
+  - stow
