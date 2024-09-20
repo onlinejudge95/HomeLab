@@ -3,4 +3,5 @@
   hosts: all
   remote_user: onlinejudge95
   roles:
+    - upgrade
     - boot

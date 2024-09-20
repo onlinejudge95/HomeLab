@@ -1,10 +1,4 @@
 ---
-- name: Upgrade the system apt dependencies
-  become: yes
-  ansible.builtin.apt:
-    update_cache: yes
-    upgrade: "full"
-
 - name: Install required packages
   become: yes
   ansible.builtin.apt:
